@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo de Livros - Livraria</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #121212; /* Fundo escuro */
+            color: white;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+        header {
+            background-color: #ff0000;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            position: relative;
+            animation: fadeIn 1s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .menu-toggle {
+            cursor: pointer;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 1.5rem;
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            background-color: transparent;
+            transition: color 0.3s;
+            animation: neon 1.5s infinite alternate;
+        }
+        @keyframes neon {
+            from {
+                text-shadow: 0 0 5px #ffd900, 0 0 10px #1900ff, 0 0 20px #1eff00, 0 0 40px #ff0000;
+                color: rgb(55, 48, 122);
+            }
+            to {
+                text-shadow: 0 0 10px #ff0000, 0 0 20px #3700ff, 0 0 30px #ff8800, 0 0 50px #00ff22;
+                color: #ffffff;
+            }
+        }
+        nav {
+            display: none; /* Oculto por padrão */
+            position: absolute;
+            top: 50px;
+            right: 10px;
+            background-color: #444;
+            border-radius: 5px;
+            padding: 10px;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        nav ul li {
+            margin: 5px 0;
+        }
+        nav ul li a {
+            display: block;
+            padding: 10px;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px; /* Cantos arredondados */
+            transition: background 0.3s;
+        }
+        nav ul li a:hover {
+            background-color: #e50914; /* Cor ao passar o mouse */
+        }
+        .content, .book-gallery {
+            margin: 20px;
+            animation: slideIn 1s ease-in-out;
+        }
+        @keyframes slideIn {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        .book-item {
+            display: inline-block;
+            margin: 10px;
+            position: relative;
+        }
+        .book-item img {
+            width: 150px; /* Ajuste conforme necessário */
+            height: auto;
+            border-radius: 8px; /* Cantos arredondados */
+            transition: transform 0.3s;
+        }
+        .book-item:hover img {
+            transform: scale(1.05); /* Efeito de zoom ao passar o mouse */
+        }
+
+        .footer {
+            position: absolute;
+            bottom: 10px;
+            font-size: 0.8em;
+            color: gray;
+            animation: fadeIn 2.5s ease-in-out;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s;
+            border-radius: 8px; /* Cantos arredondados na sobreposição */
+        }
+        .book-item:hover .overlay {
+            opacity: 1;
+        }
+        footer {
+            text-align: center;
+            padding: 20px; /* Ajuste o padding conforme necessário */
+            background-color: #222;
+            width: 100%;
+            font-size: 0.8rem; /* Diminuí o tamanho da fonte */
+            position: absolute; /* Faz com que o rodapé fique no final da página */
+            bottom: 0; /* Posiciona o rodapé no fundo */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Bem-vindo à Livraria</h1>
+        <div class="menu-toggle" onclick="toggleMenu()">Menu</div>
+        <nav id="menu">
+            <ul>
+                <li><a href="ficcao.html">Ficção</a></li>
+                <li><a href="fantasia.html">Fantasia</a></li>
+                <li><a href="romance.html">Romance</a></li>
+                <li><a href="nao-ficcao.html">Não-Ficção</a></li>
+                <li><a href="infantil.html">Infantil</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="content">
+            <h2>Sobre Nós</h2>
+            <p>Estamos aqui para trazer a melhor experiência de leitura para você.</p>
+        </section>
+
+        <section class="book-gallery">
+            <h2>Catálogo de Livros Novos</h2>
+            <div class="book-item">
+                <a href="Como-Fazer-Amigos-e-Influenciar-Pessoas-Dale-Carnegie_.html">
+                    <img src="Como-Fazer-Amigos-e-Influenciar-Pessoas-Dale-Carnegie_.jpg" alt="Livro 1">
+                    <div class="overlay">
+                        <p>Leia</p>
+                    </div>
+                </a>
+            </div>
+            <div class="book-item">
+                <a href="Meu-pé-de-laranja-lima.html">
+                    <img src="2010081900-o-meu-pe-de-laranja-lima.jpg" alt="Livro 2">
+                    <div class="overlay">
+                        <p>Leia</p>
+                    </div>
+                </a>
+            </div>
+            <div class="book-item">
+                <a href="as-48-leis-do-poder-robert-greene.html">
+                    <img src="as-48-leis-do-poder-robert-greene.png" alt="Livro 3">
+                    <div class="overlay">
+                        <p>Leia</p>
+                    </div>
+                </a>
+            </div>
+            <div class="book-item">
+                <a href="capitaes-da-areia.html">
+                    <img src="Capitães-da-Areia.jpg" alt="Livro 4">
+                    <div class="overlay">
+                        <p>Leia</p>
+                    </div>
+                </a>
+            </div>
+            <div class="book-item">
+                <a href="Os-Sete-Maridos.html">
+                    <img src="Os-Sete-Maridos.jpg" alt="Livro 55">
+                    <div class="overlay">
+                        <p>Leia</p>
+                    </div>
+                </a>
+            </div>
+            <
+            <div class="book-item">
+                <a href="livro5.html">
+                    <img src="livro5.jpg" alt="Livro 5">
+                    <div class="overlay">
+                        <p>Leia</p>
+                    </div>
+                </a>
+            </div>
+            <div class="book-item"></div>
+                <a href="livro5.html">
+                    <img src="livro5.jpg" alt="Livro 5">
+                    <div class="overlay">
+                        <p>Leia</p>
+                    </div>
+                </a>
+            </div>
+            <div class="book-item">
+                <div class="book-item">
+                    <a href="livro5.html">
+                        <img src="livro5.jpg" alt="Livro 5">
+                        <div class="overlay">
+                            <p>Leia</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="book-item">
+                    <a href="livro5.html">
+                        <img src="livro5.jpg" alt="Livro 5">
+                        <div class="overlay">
+                            <p>Leia</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+                <a href="livro5.html">
+                    <img src="livro5.jpg" alt="Livro 5">
+                    <div class="overlay">
+                        <p>Leia</p>
+                    </div>
+                </a>
+            </div> 
+        </section>
+    </main>
+
+    <div class="footer">© 2024 Livraria. Todos os direitos reservados.</div>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('menu');
+            menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+        }
+    </script>
+</body>
+</html>
